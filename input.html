@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronic Kidney Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: none;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Chronic Kidney Disease Prediction</h1></center>
+
+    <form method="POST">
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" required>
+
+        <label for="Bp">Blood Pressure (Bp):</label>
+        <input type="number" id="Bp" name="Bp" required>
+
+        <label for="Su">Serum Cholesterol (Su):</label>
+        <input type="number" id="Su" name="Su" required>
+
+        <label for="Rbc">Red Blood Cell Count (Rbc):</label>
+        <input type="number" id="Rbc" name="Rbc" required>
+
+        <label for="pc">Pus Cell Count (pc):</label>
+        <input type="number" id="pc" name="pc" required>
+
+        <label for="Thalch">Thalassemia (pcc):</label>
+        <input type="number" id="Thalch" name="Thalch" required>
+
+        <label for="Exang">Exercise Induced Angina (ba):</label>
+        <input type="number" id="Exang" name="Exang" required>
+
+        <label for="Oldpeak">Oldpeak (bgr):</label>
+        <input type="number" id="Oldpeak" name="Oldpeak" step="0.01" required> <!-- Added step attribute for decimal values -->
+
+        <label for="Slope">Slope of Peak Exercise ST Segment (bu):</label>
+        <input type="number" id="Slope" name="Slope" required>
+
+        <label for="Ca">Number of Major Vessels (sod):</label>
+        <input type="number" id="Ca" name="Ca" required>
+
+        <label for="Thal">Thalassemia (pot):</label>
+        <input type="number" id="Thal" name="Thal" required>
+
+        <label for="Hemo">Hemoglobin (Hemo):</label>
+        <input type="number" id="Hemo" name="Hemo" required>
+
+        <label for="Pcv">Packed Cell Volume (Pcv):</label>
+        <input type="number" id="Pcv" name="Pcv" required>
+
+        <label for="Wc">White Blood Cell Count (Wc):</label>
+        <input type="number" id="Wc" name="Wc" required>
+
+        <label for="Rc">Red Blood Cell Count (Rc):</label>
+        <input type="number" id="Rc" name="Rc" required>
+
+        <label for="Dm">Diabetes Mellitus (Dm):</label>
+        <input type="number" id="Dm" name="Dm" required>
+
+        <label for="Appet">Appetite (Appet):</label>
+        <input type="number" id="Appet" name="Appet" required>
+
+        <label for="Pe">Pedal Edema (Pe):</label>
+        <input type="number" id="Pe" name="Pe" required>
+
+        <label for="Ane">Anemia (Ane):</label>
+        <input type="number" id="Ane" name="Ane" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if result %}
+    <div id="result" style="display:block;">
+        <p>Prediction Result: <strong>{{ result }}</strong></p>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+</body>
+</html>
